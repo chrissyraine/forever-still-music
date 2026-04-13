@@ -121,13 +121,13 @@
       top: 0; left: 0; right: 0;
       z-index: 100;
       padding: 12px 0;
-      transition: background 0.4s ease, padding 0.4s ease;
-    }
-    .nav.scrolled {
       background: rgba(13, 11, 11, 0.92);
       backdrop-filter: blur(12px);
-      padding: 16px 0;
       border-bottom: 1px solid var(--rule);
+      transition: padding 0.4s ease;
+    }
+    .nav.scrolled {
+      padding: 16px 0;
     }
 
     .nav__inner {
@@ -210,12 +210,12 @@
 
     .hero__bg img {
       position: absolute;
-      top: 70px;
+      top: 150px;
       left: 0;
       right: 0;
       bottom: 0;
       width: 100%;
-      height: calc(100% - 70px);
+      height: calc(100% - 150px);
       object-fit: cover;
       object-position: left top;
     }
