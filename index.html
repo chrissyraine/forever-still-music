@@ -6,6 +6,16 @@
   <title>Forever Still Music — Real Stories. Real Songs.</title>
   <meta name="description" content="Forever Still is a music project built from real emotion and lived experience. AI is the vessel. The story is mine." />
 
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2173538');
+  </script>
+  <!-- End MailerLite Universal -->
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -781,6 +791,76 @@
     }
 
     /* ── Footer ────────────────────────────────────────────────── */
+    /* ── Email Capture ────────────────────────────────────────── */
+    .capture {
+      padding: 80px 0;
+      background: var(--bg-warm);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .capture__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .capture__text { flex: 1; min-width: 240px; }
+    .capture__script {
+      font-family: var(--font-script);
+      font-size: 36px;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .capture__sub {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .capture__form { flex: 1; min-width: 280px; }
+
+    /* Override MailerLite form styles to match brand */
+    .capture__form .ml-form-embedWrapper,
+    .capture__form .ml-embedded { width: 100% !important; }
+    .capture__form input[type="email"] {
+      background: rgba(240,235,228,0.06) !important;
+      border: 1px solid var(--rule) !important;
+      border-radius: 0 !important;
+      color: var(--text) !important;
+      font-family: var(--font-sans) !important;
+      font-size: 14px !important;
+      padding: 14px 18px !important;
+      width: 100% !important;
+      outline: none !important;
+    }
+    .capture__form input[type="email"]::placeholder { color: var(--text-muted) !important; }
+    .capture__form input[type="email"]:focus { border-color: var(--gold) !important; }
+    .capture__form button[type="submit"],
+    .capture__form .ml-form-embedSubmit button {
+      background: var(--gold) !important;
+      border: none !important;
+      border-radius: 0 !important;
+      color: var(--bg) !important;
+      font-family: var(--font-sans) !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      padding: 14px 32px !important;
+      cursor: pointer !important;
+      transition: background 0.2s !important;
+      width: 100% !important;
+      margin-top: 10px !important;
+    }
+    .capture__form button[type="submit"]:hover { background: #d4b87a !important; }
+
+    @media (max-width: 700px) {
+      .capture__inner { flex-direction: column; text-align: center; }
+    }
+
     .footer {
       border-top: 1px solid var(--rule);
       padding: 56px 0 40px;
@@ -1243,6 +1323,21 @@
         <p class="final-cta__sub">Start with a listen. Stay for what it means.</p>
         <div class="final-cta__actions">
           <a href="#music" class="btn btn--primary">Listen Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Email Capture ───────────────────────────────────────── -->
+  <section class="capture">
+    <div class="container">
+      <div class="capture__inner">
+        <div class="capture__text">
+          <span class="capture__script">Stay in the stillness.</span>
+          <p class="capture__sub">New music, real stories — straight to you. No noise.</p>
+        </div>
+        <div class="capture__form">
+          <div class="ml-embedded" data-form="aswWyA"></div>
         </div>
       </div>
     </div>
