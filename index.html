@@ -144,17 +144,24 @@
     }
 
     /* ── Navigation ────────────────────────────────────────────── */
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 12px 0;
-      transition: background 0.4s ease, padding 0.4s ease;
+      padding: 16px 0;
+      background: transparent;
+      transition: background 0.5s ease, backdrop-filter 0.5s ease, padding 0.4s ease;
     }
     .nav.scrolled {
-      background: rgba(13, 11, 11, 0.92);
-      backdrop-filter: blur(12px);
-      padding: 16px 0;
+      background: rgba(18, 10, 15, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 10px 0;
       border-bottom: 1px solid var(--rule);
     }
 
@@ -172,6 +179,16 @@
       line-height: 1;
     }
     .nav__logo span { color: var(--gold); }
+
+    /* floating gold logo */
+    .nav__logo img {
+      filter: sepia(0.6) saturate(1.8) hue-rotate(-8deg) brightness(0.92) contrast(1.05);
+      animation: logoFloat 4s ease-in-out infinite;
+      transition: filter 0.3s ease;
+    }
+    .nav__logo img:hover {
+      filter: sepia(0.4) saturate(2.2) hue-rotate(-8deg) brightness(1.05) contrast(1.05);
+    }
 
     .nav__links {
       display: flex;
