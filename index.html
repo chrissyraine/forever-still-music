@@ -254,7 +254,7 @@
       position: absolute;
       inset: 0;
       z-index: 0;
-      background: url('images/hero.jpg') left 35% / cover no-repeat fixed;
+      background: url('images/web_hero.jpg') left 35% / cover no-repeat fixed;
     }
 
     /* img kept in HTML for SEO/fallback but hidden — CSS bg handles display */
@@ -365,7 +365,10 @@
 
     /* ── Featured Music ────────────────────────────────────────── */
     .music {
-      background: var(--bg-soft);
+      position: relative;
+      background:
+        linear-gradient(rgba(18,10,15,0.68), rgba(18,10,15,0.72)),
+        url('images/web_hero.jpg') left 35% / cover fixed;
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
     }
