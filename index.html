@@ -253,12 +253,18 @@
     .hero__bg {
       position: absolute;
       inset: 0;
+      overflow: hidden;
       z-index: 0;
-      background: url('images/web_hero.jpg') left 35% / cover no-repeat fixed;
     }
 
-    /* img kept in HTML for SEO/fallback but hidden — CSS bg handles display */
-    .hero__bg img { display: none; }
+    .hero__bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left 35%;
+    }
 
     /* Dark overlay so text stays readable */
     .hero__bg::before {
@@ -1094,7 +1100,7 @@
   <!-- ── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero__bg">
-      <img src="images/hero.jpg" alt="" aria-hidden="true" />
+      <img src="images/web_hero.jpg" alt="" aria-hidden="true" />
     </div>
 
     <!-- Decorative music staff lines -->
