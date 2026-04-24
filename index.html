@@ -22,23 +22,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Allura&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Announcement Bar ─────────────────────────────────────── */
-    .announce {
-      display: block;
-      background: var(--gold);
-      color: var(--bg);
-      text-align: center;
-      padding: 10px 20px;
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      transition: background 0.2s;
-      position: relative;
-      z-index: 101;
+    /* ── Letter Float Animation ────────────────────────────────── */
+    @keyframes charFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-5px); }
     }
-    .announce:hover { background: #d4b87a; }
-    .announce__cta { text-decoration: underline; margin-left: 6px; }
+    .char {
+      display: inline-block;
+      animation: charFloat 3.2s ease-in-out infinite;
+    }
+
+    /* ── Nav Link Wave ─────────────────────────────────────────── */
+    @keyframes navWave {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-3px); }
+    }
+    .nav__links li { animation: navWave 3.5s ease-in-out infinite; }
+    .nav__links li:nth-child(1) { animation-delay: 0s; }
+    .nav__links li:nth-child(2) { animation-delay: 0.18s; }
+    .nav__links li:nth-child(3) { animation-delay: 0.36s; }
+    .nav__links li:nth-child(4) { animation-delay: 0.54s; }
+    .nav__links li:nth-child(5) { animation-delay: 0.72s; }
 
     /* ── Reset & Base ──────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -249,18 +253,12 @@
     .hero__bg {
       position: absolute;
       inset: 0;
-      overflow: hidden;
       z-index: 0;
+      background: url('images/hero.jpg') left 35% / cover no-repeat fixed;
     }
 
-    .hero__bg img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
+    /* img kept in HTML for SEO/fallback but hidden — CSS bg handles display */
+    .hero__bg img { display: none; }
 
     /* Dark overlay so text stays readable */
     .hero__bg::before {
@@ -1062,11 +1060,6 @@
 <body>
 
   <!-- ── Navigation ──────────────────────────────────────────── -->
-  <!-- Announcement Bar -->
-  <a href="https://www.patreon.com/posts/where-ive-been-156461644" target="_blank" rel="noopener" class="announce">
-    <span class="announce__text">✦ Read: Where I've Been — The story behind the silence. <span class="announce__cta">Read on Patreon →</span></span>
-  </a>
-
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav__inner">
@@ -1146,6 +1139,7 @@
         <div class="hero__ctas">
           <a href="#music" class="btn btn--primary">Listen Now</a>
           <a href="#story" class="btn btn--ghost">Explore the Story</a>
+          <a href="https://www.patreon.com/posts/where-ive-been-156461644" target="_blank" rel="noopener" class="btn btn--ghost">Read on Patreon ✦</a>
         </div>
       </div>
     </div>
@@ -1480,6 +1474,39 @@
       el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
       io.observe(el);
     });
+
+    // ── Letter-by-letter float animation ───────────────────────
+    function animateLetters(selector) {
+      document.querySelectorAll(selector).forEach(el => {
+        let charIdx = 0;
+
+        function processNode(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const frag = document.createDocumentFragment();
+            for (const char of node.textContent) {
+              if (/\s/.test(char)) {
+                frag.appendChild(document.createTextNode(char));
+              } else {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.style.animationDelay = (charIdx * 0.055).toFixed(3) + 's';
+                span.textContent = char;
+                frag.appendChild(span);
+                charIdx++;
+              }
+            }
+            node.parentNode.replaceChild(frag, node);
+          } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'BR') {
+            Array.from(node.childNodes).forEach(processNode);
+          }
+        }
+
+        Array.from(el.childNodes).forEach(processNode);
+      });
+    }
+
+    // Apply to hero headline + hero script text
+    animateLetters('.hero__headline, .hero__script');
   </script>
 </body>
 </html>

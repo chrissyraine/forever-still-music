@@ -36,6 +36,13 @@
     .nav__logo img { filter: sepia(0.6) saturate(1.8) hue-rotate(-8deg) brightness(0.92) contrast(1.05); animation: logoFloat 4s ease-in-out infinite; transition: filter 0.3s ease; }
     .nav__logo img:hover { filter: sepia(0.4) saturate(2.2) hue-rotate(-8deg) brightness(1.05) contrast(1.05); }
     .nav__links { display: flex; gap: 36px; list-style: none; }
+    @keyframes navWave { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-3px); } }
+    .nav__links li { animation: navWave 3.5s ease-in-out infinite; }
+    .nav__links li:nth-child(1) { animation-delay: 0s; }
+    .nav__links li:nth-child(2) { animation-delay: 0.18s; }
+    .nav__links li:nth-child(3) { animation-delay: 0.36s; }
+    .nav__links li:nth-child(4) { animation-delay: 0.54s; }
+    .nav__links li:nth-child(5) { animation-delay: 0.72s; }
     .nav__links a { font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-soft); transition: color 0.2s; }
     .nav__links a:hover { color: var(--gold); }
     .nav__cta { font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 10px 22px; border: 1px solid var(--gold); color: var(--gold); transition: background 0.2s, color 0.2s; }
