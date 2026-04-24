@@ -22,6 +22,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Allura&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
+    /* ── Announcement Bar ─────────────────────────────────────── */
+    .announce {
+      display: block;
+      background: var(--gold);
+      color: var(--bg);
+      text-align: center;
+      padding: 10px 20px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: background 0.2s;
+      position: relative;
+      z-index: 101;
+    }
+    .announce:hover { background: #d4b87a; }
+    .announce__cta { text-decoration: underline; margin-left: 6px; }
+
     /* ── Reset & Base ──────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1027,6 +1045,11 @@
 <body>
 
   <!-- ── Navigation ──────────────────────────────────────────── -->
+  <!-- Announcement Bar -->
+  <a href="https://www.patreon.com/posts/where-ive-been-156461644" target="_blank" rel="noopener" class="announce">
+    <span class="announce__text">✦ Read: Where I've Been — The story behind the silence. <span class="announce__cta">Read on Patreon →</span></span>
+  </a>
+
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav__inner">
@@ -1150,15 +1173,15 @@
     <div class="container">
       <div class="stats__inner">
         <div class="stats__item">
-          <span class="stats__num">24K+</span>
+          <span class="stats__num">29.7K</span>
           <span class="stats__label">Plays on SoundCloud</span>
         </div>
         <div class="stats__item">
-          <span class="stats__num">185</span>
+          <span class="stats__num">244</span>
           <span class="stats__label">Likes</span>
         </div>
         <div class="stats__item">
-          <span class="stats__num">39</span>
+          <span class="stats__num">42</span>
           <span class="stats__label">Comments</span>
         </div>
         <div class="stats__item">
