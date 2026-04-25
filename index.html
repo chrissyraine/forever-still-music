@@ -131,22 +131,24 @@
       background: var(--gold);
       border-color: var(--gold);
       color: var(--bg);
+      box-shadow: 0 0 10px rgba(200,169,106,0.25), 0 0 22px rgba(200,169,106,0.1);
     }
     .btn--primary:hover {
       background: transparent;
       color: var(--gold);
-      box-shadow: 0 0 18px rgba(200,169,106,0.45), 0 0 40px rgba(200,169,106,0.18), inset 0 0 12px rgba(200,169,106,0.06);
+      box-shadow: 0 0 18px rgba(200,169,106,0.55), 0 0 44px rgba(200,169,106,0.22), inset 0 0 12px rgba(200,169,106,0.08);
     }
 
     .btn--ghost {
       background: transparent;
       border-color: rgba(240, 235, 228, 0.35);
       color: var(--text);
+      box-shadow: 0 0 8px rgba(200,169,106,0.12), 0 0 18px rgba(200,169,106,0.06);
     }
     .btn--ghost:hover {
       border-color: var(--gold);
-      box-shadow: 0 0 18px rgba(200,169,106,0.35), 0 0 40px rgba(200,169,106,0.14), inset 0 0 12px rgba(200,169,106,0.05);
       color: var(--gold);
+      box-shadow: 0 0 18px rgba(200,169,106,0.45), 0 0 44px rgba(200,169,106,0.18), inset 0 0 12px rgba(200,169,106,0.06);
     }
 
     /* ── Navigation ────────────────────────────────────────────── */
@@ -221,9 +223,10 @@
       color: var(--gold);
       border: 1px solid var(--gold);
       padding: 10px 22px;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.4s ease;
+      box-shadow: 0 0 10px rgba(200,169,106,0.25), 0 0 22px rgba(200,169,106,0.1);
     }
-    .nav__cta:hover { background: var(--gold); color: var(--bg); }
+    .nav__cta:hover { background: var(--gold); color: var(--bg); box-shadow: 0 0 18px rgba(200,169,106,0.55), 0 0 44px rgba(200,169,106,0.22); }
 
     /* hamburger */
     .nav__hamburger {
