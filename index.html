@@ -890,6 +890,211 @@
       flex-wrap: wrap;
     }
 
+    /* ── Lyric Rotator ─────────────────────────────────────────── */
+    .lyric-strip {
+      padding: 56px 0;
+      text-align: center;
+      background: var(--bg-warm);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+    }
+    .lyric-strip__inner { position: relative; width: 100%; }
+    .lyric-strip__line {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 32px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.5;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .lyric-strip__line.visible { opacity: 1; }
+    .lyric-strip__line em { color: var(--gold); font-style: normal; }
+    .lyric-strip__tag {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    /* ── Song Accordion ─────────────────────────────────────────── */
+    .catalog { background: var(--bg-soft); }
+    .catalog__header { text-align: center; margin-bottom: 56px; }
+    .catalog__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .catalog__sub {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .track-list { max-width: 760px; margin: 0 auto; }
+    .track-item { border-bottom: 1px solid var(--rule); }
+    .track-item:first-child { border-top: 1px solid var(--rule); }
+    .track-item__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      cursor: pointer;
+      gap: 16px;
+    }
+    .track-item__header:hover .track-item__title { color: var(--gold); }
+    .track-item__num {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      min-width: 28px;
+    }
+    .track-item__title {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 300;
+      color: var(--text-soft);
+      flex: 1;
+      transition: color 0.2s ease;
+    }
+    .track-item.open .track-item__title { color: var(--gold); }
+    .track-item__arrow {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.35s ease, border-color 0.2s ease;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+    .track-item.open .track-item__arrow {
+      transform: rotate(180deg);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .track-item__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .track-item.open .track-item__body { max-height: 200px; padding-bottom: 24px; }
+    .track-item__story {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+      padding-left: 44px;
+      border-left: 2px solid var(--rule);
+      margin-left: 28px;
+    }
+
+    /* ── Fan Wall ───────────────────────────────────────────────── */
+    .fan-wall { padding: var(--section-gap) 0; }
+    .fan-wall__header { text-align: center; margin-bottom: 56px; }
+    .fan-wall__title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .fan-wall__sub {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .fan-wall__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .fan-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      padding: 24px 28px;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text-soft);
+      line-height: 1.65;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fanCardIn 0.5s ease forwards;
+    }
+    .fan-card span {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-style: normal;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 14px;
+      opacity: 0.7;
+    }
+    @keyframes fanCardIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fan-wall__form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .fan-wall__prompt {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+    }
+    .fan-wall__input {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--rule);
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-style: italic;
+      padding: 12px 4px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .fan-wall__input::placeholder { color: var(--text-muted); }
+    .fan-wall__input:focus { border-color: var(--gold); }
+    .fan-wall__thanks {
+      display: none;
+      font-family: var(--font-script);
+      font-size: 28px;
+      color: var(--gold);
+    }
+
     /* ── Footer ────────────────────────────────────────────────── */
     /* ── Email Capture ────────────────────────────────────────── */
     .capture {
@@ -1246,6 +1451,15 @@
     </div>
   </section>
 
+  <!-- ── Lyric Rotator ───────────────────────────────────────── -->
+  <div class="lyric-strip">
+    <div class="container">
+      <div class="lyric-strip__inner">
+        <p class="lyric-strip__line" id="lyricLine"></p>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Stats ───────────────────────────────────────────────── -->
   <section class="stats">
     <div class="container">
@@ -1288,6 +1502,142 @@
           If you've ever had to rebuild yourself from the inside out,<br/>
           she was made for you too.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Song Story Accordion ────────────────────────────────── -->
+  <section class="section catalog" id="catalog">
+    <div class="container">
+      <div class="catalog__header">
+        <div class="rule"></div>
+        <p class="eyebrow">The Story Behind Each Song</p>
+        <h2 class="catalog__title">11 tracks. 11 real moments.</h2>
+        <p class="catalog__sub">Click any title to read where it came from.</p>
+      </div>
+      <div class="track-list">
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">01</span>
+            <span class="track-item__title">Harder Than the Army</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">02</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">03</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">04</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">05</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">06</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">07</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">08</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">09</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">10</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
+        <div class="track-item">
+          <div class="track-item__header">
+            <span class="track-item__num">11</span>
+            <span class="track-item__title">[Track Title]</span>
+            <span class="track-item__arrow">↓</span>
+          </div>
+          <div class="track-item__body">
+            <p class="track-item__story">Add the real story behind this track here — 2 to 3 sentences about the moment it came from.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1451,6 +1801,25 @@
     </div>
   </section>
 
+  <!-- ── Fan Wall ────────────────────────────────────────────── -->
+  <section class="fan-wall" id="fan-wall">
+    <div class="container">
+      <div class="fan-wall__header">
+        <div class="rule"></div>
+        <p class="eyebrow">What listeners are feeling</p>
+        <h2 class="fan-wall__title">This song made me think of…</h2>
+        <p class="fan-wall__sub">Real moments from people who've been still long enough to listen.</p>
+      </div>
+      <div class="fan-wall__grid" id="fanGrid"></div>
+      <div class="fan-wall__form">
+        <p class="fan-wall__prompt">"What did this song make you think of?"</p>
+        <input type="text" class="fan-wall__input" id="fanInput" placeholder="Write something real…" maxlength="120" />
+        <button class="btn btn--primary" id="fanSubmit">Add Your Voice</button>
+        <p class="fan-wall__thanks" id="fanThanks">Thank you. ✦</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Email Capture ───────────────────────────────────────── -->
   <section class="capture">
     <div class="container">
@@ -1596,6 +1965,90 @@
 
     // Apply to hero headline + hero script text
     animateLetters('.hero__headline, .hero__script');
+
+    // ── Lyric Rotator ──────────────────────────────────────────
+    const lyrics = [
+      { line: 'Every scar was a lesson I had to <em>stop running from</em>.', tag: 'Harder Than the Army' },
+      { line: 'I didn\'t need someone to save me — I needed <em>to remember</em> I never did.', tag: 'Harder Than the Army' },
+      { line: 'The quiet was the loudest thing I\'d ever had to <em>sit with</em>.', tag: 'Harder Than the Army' },
+      { line: 'She stood still long enough to finally <em>hear herself</em>.', tag: 'Forever Still' },
+      { line: 'Some goodbyes are the kindest thing love ever <em>did for me</em>.', tag: 'Harder Than the Army' },
+    ];
+
+    const lyricEl = document.getElementById('lyricLine');
+    let lyricIdx = 0;
+
+    function setLyric(idx) {
+      lyricEl.innerHTML = lyrics[idx].line +
+        '<span class="lyric-strip__tag">' + lyrics[idx].tag + '</span>';
+    }
+
+    // Show first lyric immediately
+    setLyric(0);
+    requestAnimationFrame(() => lyricEl.classList.add('visible'));
+
+    setInterval(() => {
+      lyricEl.classList.remove('visible');
+      setTimeout(() => {
+        lyricIdx = (lyricIdx + 1) % lyrics.length;
+        setLyric(lyricIdx);
+        lyricEl.classList.add('visible');
+      }, 900);
+    }, 5000);
+
+    // ── Song Accordion ─────────────────────────────────────────
+    document.querySelectorAll('.track-item__header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.closest('.track-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.track-item').forEach(t => t.classList.remove('open'));
+        // Open clicked one if it wasn't already open
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── Fan Wall ───────────────────────────────────────────────
+    const seeded = [
+      { msg: 'My divorce. The whole album felt like someone had been in the room with me.', tag: '— anonymous listener' },
+      { msg: 'The moment I stopped pretending I was okay.', tag: '— via website' },
+      { msg: 'My mom. I couldn\'t explain why. I just sat there and cried.', tag: '— anonymous listener' },
+      { msg: 'Every night I chose my kids over everything else and felt invisible for it.', tag: '— via website' },
+      { msg: 'A version of myself I thought I\'d lost. This brought her back.', tag: '— anonymous listener' },
+      { msg: 'The year I had to rebuild from nothing. This is exactly what that sounded like.', tag: '— via website' },
+    ];
+
+    const fanGrid = document.getElementById('fanGrid');
+
+    function renderFanCards(cards) {
+      fanGrid.innerHTML = '';
+      cards.forEach((c, i) => {
+        const div = document.createElement('div');
+        div.className = 'fan-card';
+        div.style.animationDelay = (i * 0.07) + 's';
+        div.innerHTML = '“' + c.msg + '”<span>' + c.tag + '</span>';
+        fanGrid.appendChild(div);
+      });
+    }
+
+    const stored = JSON.parse(localStorage.getItem('fsm_fan_wall') || '[]');
+    renderFanCards([...seeded, ...stored]);
+
+    const fanInput  = document.getElementById('fanInput');
+    const fanSubmit = document.getElementById('fanSubmit');
+    const fanThanks = document.getElementById('fanThanks');
+
+    fanSubmit.addEventListener('click', () => {
+      const val = fanInput.value.trim();
+      if (!val) return;
+      const entry = { msg: val, tag: '— new listener' };
+      const updated = [...stored, entry];
+      localStorage.setItem('fsm_fan_wall', JSON.stringify(updated));
+      renderFanCards([...seeded, ...updated]);
+      fanInput.style.display = 'none';
+      fanSubmit.style.display = 'none';
+      fanThanks.style.display = 'block';
+    });
   </script>
 </body>
 </html>
