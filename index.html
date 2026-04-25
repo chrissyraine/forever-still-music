@@ -433,6 +433,59 @@
     }
     .music__embed-credit a:hover { color: var(--gold); }
 
+    /* ── Manifesto ─────────────────────────────────────────────── */
+    .manifesto {
+      padding: 110px 0;
+      text-align: center;
+      position: relative;
+    }
+    .manifesto::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(200,169,106,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .manifesto__inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .manifesto__opener {
+      font-family: var(--font-script);
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--gold);
+      line-height: 1.3;
+      margin-bottom: 36px;
+      display: block;
+    }
+    .manifesto__body {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-soft);
+      margin-bottom: 32px;
+    }
+    .manifesto__body em {
+      font-style: italic;
+      color: var(--blush);
+    }
+    .manifesto__close {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.85;
+    }
+    .manifesto__rule {
+      width: 1px;
+      height: 60px;
+      background: var(--gold);
+      opacity: 0.4;
+      margin: 0 auto 40px;
+    }
+
     /* ── Stats strip ──────────────────────────────────────────── */
     .stats {
       border-top: 1px solid var(--rule);
@@ -1213,6 +1266,28 @@
           <span class="stats__num">11</span>
           <span class="stats__label">Original Tracks</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Manifesto ───────────────────────────────────────────── -->
+  <section class="manifesto">
+    <div class="container">
+      <div class="manifesto__inner">
+        <div class="manifesto__rule"></div>
+        <span class="manifesto__opener">She isn't me.<br/>But she's every part of me I didn't have room to become.</span>
+        <p class="manifesto__body">
+          Foreverstill is the version of me the quiet built. The one who stayed still long enough to hear herself.
+          She wears the softness I had to fight for, and the steadiness <em>I'm still learning to trust.</em>
+        </p>
+        <p class="manifesto__body">
+          I create her with AI — openly, intentionally — because some stories need a voice that can survive being told.
+          <em>Mine almost didn't.</em>
+        </p>
+        <p class="manifesto__close">
+          If you've ever had to rebuild yourself from the inside out,<br/>
+          she was made for you too.
+        </p>
       </div>
     </div>
   </section>
