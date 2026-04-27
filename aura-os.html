@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aura OS — The Custom AI Music System Behind Forever Still Music</title>
+  <meta name="description" content="Aura OS is a custom operating system built by Chrissy Schroer to create AI-powered music. LoRA-trained visuals, custom workflows, 30K plays with no label." />
+
+  <!-- SEO -->
+  <meta name="keywords" content="Aura OS, AI music operating system, custom AI DAW, LoRA music visuals, AI songwriting system, Forever Still Music, Chrissy Schroer" />
+  <link rel="canonical" href="https://www.foreverstillmusic.com/aura-os" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aura OS — The Custom AI Music System Behind Forever Still Music" />
+  <meta property="og:description" content="I didn't use a template. I built my own system. Aura OS is how Forever Still Music gets made." />
+  <meta property="og:image" content="https://www.foreverstillmusic.com/images/hero.jpg" />
+  <meta property="og:url" content="https://www.foreverstillmusic.com/aura-os" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Allura&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #1a1a1a;
+      --bg-soft:     #1f1f1f;
+      --bg-warm:     #242020;
+      --gold:        #C8A96A;
+      --blush:       #d4a5a5;
+      --text:        #f0ebe4;
+      --text-muted:  #9c8c82;
+      --text-soft:   #cbbfb6;
+      --rule:        rgba(200, 169, 106, 0.18);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-script:  'Allura', cursive;
+      --font-sans:    'Inter', system-ui, sans-serif;
+      --max-w: 1100px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-display);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 600px) { .container { padding: 0 20px; } }
+
+    /* ── NAV ─────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,26,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.3s;
+    }
+    .nav__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 80px; max-width: var(--max-w); margin: 0 auto;
+    }
+    .nav__logo img { height: 80px; width: auto; display: block; padding: 6px 0; }
+    .nav__links { list-style: none; display: flex; gap: 36px; }
+    .nav__links a {
+      font-family: var(--font-sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-soft); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav__links a:hover, .nav__links a.active { color: var(--gold); }
+    .nav__hamburger {
+      display: none; background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .nav__hamburger span {
+      display: block; width: 22px; height: 1.5px; background: var(--text);
+      margin: 5px 0; transition: 0.3s;
+    }
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__hamburger { display: block; }
+    }
+
+    /* Mobile Drawer */
+    .nav__drawer {
+      position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px;
+      height: 100vh; background: #111; z-index: 200;
+      display: flex; flex-direction: column; gap: 0; padding: 80px 40px 40px;
+      transition: right 0.35s ease; border-left: 1px solid var(--rule);
+    }
+    .nav__drawer.open { right: 0; }
+    .nav__drawer a {
+      font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-soft); text-decoration: none;
+      padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s;
+    }
+    .nav__drawer a:hover { color: var(--gold); }
+    .nav__close {
+      position: absolute; top: 24px; right: 24px;
+      background: none; border: none; color: var(--text-muted);
+      font-size: 18px; cursor: pointer;
+    }
+
+    /* ── PAGE HERO ───────────────────────────────────────────────── */
+    .page-hero {
+      position: relative; min-height: 60vh;
+      display: flex; align-items: flex-end;
+      padding-bottom: 80px; overflow: hidden;
+      margin-top: 80px;
+    }
+    .page-hero__bg {
+      position: absolute; inset: 0; overflow: hidden; z-index: 0;
+    }
+    .page-hero__bg img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      filter: brightness(0.35) saturate(0.6);
+    }
+    .page-hero__bg::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(26,26,26,0.2) 0%, rgba(26,26,26,0.85) 100%);
+    }
+    .page-hero__content {
+      position: relative; z-index: 2;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 40px; width: 100%;
+    }
+    .page-hero__script {
+      font-family: var(--font-script); font-size: 28px; color: var(--gold);
+      display: block; margin-bottom: 12px;
+    }
+    .page-hero__name {
+      font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px);
+      font-weight: 300; line-height: 1.1; color: var(--text);
+      margin-bottom: 20px;
+    }
+    .page-hero__name em { font-style: italic; color: var(--gold); }
+    .page-hero__sub {
+      font-family: var(--font-sans); font-size: 14px; color: var(--text-soft);
+      letter-spacing: 0.06em; max-width: 560px; line-height: 1.8;
+    }
+
+    /* ── SECTION BASE ────────────────────────────────────────────── */
+    .section { padding: 100px 0; }
+    .section--soft { background: var(--bg-soft); }
+    .section--warm { background: var(--bg-warm); }
+
+    .eyebrow {
+      font-family: var(--font-sans); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px; display: block;
+    }
+    .rule {
+      width: 48px; height: 1px; background: var(--gold);
+      margin-bottom: 24px; opacity: 0.6;
+    }
+    h2 {
+      font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300; line-height: 1.2; color: var(--text);
+      margin-bottom: 24px;
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+    p { color: var(--text-soft); font-size: 17px; line-height: 1.85; margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── WHAT IS AURA ────────────────────────────────────────────── */
+    .intro__inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    @media (max-width: 768px) { .intro__inner { grid-template-columns: 1fr; gap: 48px; } }
+
+    .intro__lead {
+      font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 26px);
+      font-style: italic; color: var(--blush); line-height: 1.6;
+      border-left: 2px solid var(--gold); padding-left: 28px;
+    }
+
+    /* ── CAPABILITIES GRID ───────────────────────────────────────── */
+    .cap-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      margin-top: 60px;
+    }
+    @media (max-width: 768px) { .cap-grid { grid-template-columns: 1fr; } }
+
+    .cap-card {
+      background: var(--bg-soft); padding: 40px 32px;
+      border: 1px solid var(--rule); transition: border-color 0.3s;
+    }
+    .cap-card:hover { border-color: rgba(200,169,106,0.4); }
+    .cap-card__num {
+      font-family: var(--font-sans); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px; display: block;
+    }
+    .cap-card__title {
+      font-family: var(--font-display); font-size: 22px; font-weight: 400;
+      color: var(--text); margin-bottom: 14px; line-height: 1.3;
+    }
+    .cap-card p { font-size: 14px; line-height: 1.75; }
+
+    /* ── VIDEO SECTION ───────────────────────────────────────────── */
+    .video-wrap {
+      position: relative; background: #0d0d0d;
+      border: 1px solid var(--rule); border-radius: 2px; overflow: hidden;
+      aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
+    }
+    .video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-placeholder {
+      text-align: center; padding: 60px 40px;
+    }
+    .video-placeholder__icon {
+      font-size: 48px; margin-bottom: 20px; opacity: 0.4;
+    }
+    .video-placeholder p {
+      font-family: var(--font-sans); font-size: 13px;
+      color: var(--text-muted); letter-spacing: 0.08em;
+    }
+
+    /* ── STATS ───────────────────────────────────────────────────── */
+    .stats-row {
+      display: flex; gap: 0; border: 1px solid var(--rule); margin-top: 60px;
+    }
+    @media (max-width: 600px) { .stats-row { flex-direction: column; } }
+    .stat {
+      flex: 1; padding: 40px 32px; text-align: center;
+      border-right: 1px solid var(--rule);
+    }
+    .stat:last-child { border-right: none; }
+    .stat__num {
+      font-family: var(--font-display); font-size: 48px; font-weight: 300;
+      color: var(--gold); line-height: 1; display: block; margin-bottom: 8px;
+    }
+    .stat__label {
+      font-family: var(--font-sans); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted);
+    }
+
+    /* ── BUTTONS ─────────────────────────────────────────────────── */
+    .btn {
+      display: inline-block; padding: 14px 32px;
+      font-family: var(--font-sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
+      box-shadow: 0 0 14px rgba(200,169,106,0.18), 0 0 32px rgba(200,169,106,0.08);
+    }
+    .btn--primary { background: var(--gold); color: #1a1a1a; }
+    .btn--primary:hover { background: #d4b87a; box-shadow: 0 0 22px rgba(200,169,106,0.45), 0 0 55px rgba(200,169,106,0.2); }
+    .btn--ghost { background: transparent; color: var(--gold); border: 1px solid rgba(200,169,106,0.45); }
+    .btn--ghost:hover { border-color: var(--gold); box-shadow: 0 0 22px rgba(200,169,106,0.35), 0 0 50px rgba(200,169,106,0.15); }
+
+    .cta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 40px; }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    .footer {
+      background: #111; border-top: 1px solid var(--rule);
+      padding: 60px 0 32px;
+    }
+    .footer__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer__logo {
+      font-family: var(--font-display); font-size: 22px; font-weight: 300;
+      color: var(--text); text-decoration: none;
+    }
+    .footer__links {
+      list-style: none; display: flex; gap: 28px; flex-wrap: wrap;
+    }
+    .footer__links a {
+      font-family: var(--font-sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none;
+    }
+    .footer__links a:hover { color: var(--gold); }
+    .footer__copy {
+      font-family: var(--font-sans); font-size: 11px; color: var(--text-muted);
+      text-align: center; margin-top: 48px; letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo"><img src="images/logo.png" alt="Forever Still Music" /></a>
+      <ul class="nav__links">
+        <li><a href="index.html#music">Listen</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#offer">Shop</a></li>
+        <li><a href="method.html">Your Song</a></li>
+        <li><a href="aura-os.html" class="active">Aura OS</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <nav class="nav__drawer" id="drawer">
+    <button class="nav__close" id="drawerClose">✕</button>
+    <a href="index.html#music">Listen</a>
+    <a href="about.html">About</a>
+    <a href="index.html#offer">Shop</a>
+    <a href="method.html">Your Song</a>
+    <a href="aura-os.html">Aura OS</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="page-hero__bg">
+      <img src="images/hero.jpg" alt="" aria-hidden="true" />
+    </div>
+    <div class="page-hero__content">
+      <span class="page-hero__script">Built from scratch</span>
+      <h1 class="page-hero__name">Aura <em>OS</em></h1>
+      <p class="page-hero__sub">A custom operating system built to make AI music the way I hear it in my head — not the way a template wants me to.</p>
+    </div>
+  </div>
+
+  <!-- ── What Is Aura ──────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="intro__inner">
+        <div>
+          <div class="rule"></div>
+          <span class="eyebrow">The system</span>
+          <h2>I didn't use someone else's tools.<br />I built <em>mine.</em></h2>
+          <p>Aura OS is the custom AI workflow system I built to create Forever Still Music. It's not a DAW. It's not a plugin. It's a purpose-built environment that handles everything from emotional prompt engineering to visual generation — all tuned to my voice, my face, and my story.</p>
+          <p>Every song on <em>Harder Than the Army</em> ran through Aura. Every visual you've seen of Forever Still was generated inside it. 30,000 plays on SoundCloud. Zero ads. Zero label. One system.</p>
+          <p>I'm a U.S. Army veteran and solo mom of two. I didn't have a studio budget or a team. I had time, obsession, and a problem I needed to solve. Aura OS is what happened when I refused to settle for someone else's answer.</p>
+        </div>
+        <div>
+          <p class="intro__lead">"AI didn't make me an artist. It gave me a system powerful enough to keep up with what I already was."</p>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat__num">30K</span>
+          <span class="stat__label">SoundCloud plays</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">11</span>
+          <span class="stat__label">Tracks — one album</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">$0</span>
+          <span class="stat__label">Ad spend</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">1</span>
+          <span class="stat__label">Custom OS. All of it.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Capabilities ───────────────────────────────────────────────── -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="rule"></div>
+      <span class="eyebrow">What Aura OS does</span>
+      <h2>Every part of the music is <em>intentional.</em></h2>
+
+      <div class="cap-grid">
+        <div class="cap-card">
+          <span class="cap-card__num">01 — Sound</span>
+          <div class="cap-card__title">AI Music Generation</div>
+          <p>Custom prompt architecture tuned to my emotional vocabulary. Not generic. Not random. Aura produces the specific feeling I'm after — grief, grit, stillness, defiance.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-card__num">02 — Visuals</span>
+          <div class="cap-card__title">LoRA-Trained on My Face</div>
+          <p>I trained a LoRA model on my own likeness so the visual identity of Forever Still Music is actually me — not a stock avatar or AI-generic face. Every image is mine.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-card__num">03 — Workflow</span>
+          <div class="cap-card__title">End-to-End Production</div>
+          <p>From lyrics to audio to art to release — Aura OS connects every step. Built for a solo operator who needs a full production pipeline without a full production team.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-card__num">04 — Story</span>
+          <div class="cap-card__title">Emotional Prompt Engineering</div>
+          <p>The hardest part of AI music isn't the tool — it's knowing what to ask for. Aura is built around a method for translating lived experience into prompts that produce real feeling.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-card__num">05 — Identity</span>
+          <div class="cap-card__title">Brand-Consistent Output</div>
+          <p>Every output — audio, visual, copy — runs through a brand layer that keeps Forever Still cohesive. Dark. Gold. Honest. That's not a mood board. It's a constraint baked into the system.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-card__num">06 — Scale</span>
+          <div class="cap-card__title">Built for One. Scales to Many.</div>
+          <p>The custom song service on this site — <a href="method.html" style="color:var(--gold);text-decoration:none;">Your Life, Your Song</a> — runs on Aura. Your story goes in. A real song comes out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Screen Recording ───────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="rule"></div>
+      <span class="eyebrow">See it in action</span>
+      <h2>Aura OS — <em>Inside the System</em></h2>
+      <p>A real look at the workflow. No cuts. No cleanup. Just the actual process of building a song from an emotional brief inside Aura OS.</p>
+
+      <div class="video-wrap" style="margin-top: 40px;" id="videoWrap">
+        <!-- Drop your screen recording here: replace the src with your video file path -->
+        <!-- <video controls poster="images/hero.jpg">
+          <source src="videos/aura-os-demo.mp4" type="video/mp4" />
+        </video> -->
+        <div class="video-placeholder">
+          <div class="video-placeholder__icon">▶</div>
+          <p>Screen recording coming soon.<br />Drop your video file in <code style="color:var(--gold);">/videos/aura-os-demo.mp4</code> and uncomment the video tag above.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why It Matters ─────────────────────────────────────────────── -->
+  <section class="section section--warm">
+    <div class="container" style="max-width: 760px;">
+      <div class="rule"></div>
+      <span class="eyebrow">Why this exists</span>
+      <h2>The music industry didn't have a seat for me.<br />So I <em>built the table.</em></h2>
+      <p>I'm not a tech founder. I'm not a music executive. I'm a veteran who came home, raised two boys alone, survived things I don't list on websites, and found that the only way to say what I needed to say was to build something that didn't exist yet.</p>
+      <p>Aura OS is proof that you don't need a label, a studio, or a team. You need a story worth telling and the willingness to figure out how to tell it. I figured it out. Then I built it into a system. Then I used that system to make an album that's touched 30,000 people with no advertising.</p>
+      <p>That's what Aura does. That's what it's for.</p>
+
+      <div class="cta-row">
+        <a href="index.html#music" class="btn btn--primary">Listen to the Album</a>
+        <a href="method.html" class="btn btn--ghost">Turn Your Story Into a Song</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="index.html" class="footer__logo">Forever Still Music</a>
+        <ul class="footer__links">
+          <li><a href="index.html#music">Listen</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="method.html">Your Song</a></li>
+          <li><a href="aura-os.html">Aura OS</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer__copy">&copy; 2026 Forever Still Music. Powered by Aura OS. &nbsp;·&nbsp; <a href="mailto:chrissy@foreverstillstudio.com" style="color:var(--gold);text-decoration:none;">chrissy@foreverstillstudio.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const drawer    = document.getElementById('drawer');
+    const close     = document.getElementById('drawerClose');
+    hamburger.addEventListener('click', () => drawer.classList.add('open'));
+    close.addEventListener('click', () => drawer.classList.remove('open'));
+    drawer.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => drawer.classList.remove('open'))
+    );
+  </script>
+
+</body>
+</html>
