@@ -265,13 +265,23 @@
       z-index: 0;
     }
 
-    .hero__bg img {
+    .hero__bg-base {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: left 35%;
+      object-position: center 25%;
+    }
+    .hero__bg-top {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.52;
+      mix-blend-mode: screen;
     }
 
     /* Dark overlay so text stays readable */
@@ -1378,7 +1388,8 @@
   <!-- ── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero__bg">
-      <img src="images/hero.jpeg" alt="" aria-hidden="true" />
+      <img src="images/chrissy-flowers.jpg" class="hero__bg-base" alt="" aria-hidden="true" />
+      <img src="images/kids_band.jpg" class="hero__bg-top" alt="" aria-hidden="true" />
     </div>
 
     <!-- 3D Particle Field -->
