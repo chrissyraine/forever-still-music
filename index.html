@@ -281,8 +281,17 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(to right, rgba(18,10,15,0.78) 40%, rgba(18,10,15,0.35) 100%),
-        linear-gradient(to bottom, rgba(18,10,15,0.25) 0%, rgba(18,10,15,0.6) 100%);
+        linear-gradient(to right, rgba(18,10,15,0.88) 30%, rgba(18,10,15,0.6) 100%),
+        linear-gradient(to bottom, rgba(18,10,15,0.4) 0%, rgba(18,10,15,0.75) 100%);
+    }
+
+    /* ── 3D Particle Canvas ─────────────────────────────────────── */
+    #heroParticles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: screen;
     }
 
     /* Decorative score lines */
@@ -1369,8 +1378,11 @@
   <!-- ── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero__bg">
-      <img src="images/hero.jpeg" alt="" aria-hidden="true" />
+      <img src="images/kids_band.jpg" alt="" aria-hidden="true" />
     </div>
+
+    <!-- 3D Particle Field -->
+    <canvas id="heroParticles" aria-hidden="true"></canvas>
 
     <!-- Decorative music staff lines -->
     <div class="hero__lines" aria-hidden="true">
@@ -2088,6 +2100,149 @@
       fanSubmit.style.display = 'none';
       fanThanks.style.display = 'block';
     });
+
+    // ── 3D Hero Particle Field ─────────────────────────────────
+    (function initParticles() {
+      const canvas = document.getElementById('heroParticles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const isMobile = window.innerWidth < 768;
+      const COUNT = isMobile ? 180 : 520;
+      const FOCAL = 520;
+
+      let W, H, CX, CY;
+      let rotX = 0, rotY = 0, rotZ = 0;
+      let targetRotX = 0, targetRotY = 0;
+
+      const COLORS = [
+        '200,169,106','212,184,130','180,145,85',
+        '240,220,160','255,200,100','220,190,120'
+      ];
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const hero = canvas.parentElement;
+        W = hero.offsetWidth; H = hero.offsetHeight;
+        canvas.width  = W * dpr; canvas.height = H * dpr;
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.scale(dpr, dpr);
+        CX = W / 2; CY = H / 2;
+      }
+
+      function Star(isInit) {
+        this.reset = function(rnd) {
+          this.x = (Math.random() - 0.5) * 3200;
+          this.y = (Math.random() - 0.5) * 3200;
+          this.z = rnd ? (Math.random() - 0.5) * 2200 : 1600;
+          this.sz    = Math.random() * 1.6 + 0.15;
+          this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+          this.op    = Math.random() * 0.75 + 0.2;
+          this.ph    = Math.random() * Math.PI * 2;
+          this.phSpd = Math.random() * 0.018 + 0.004;
+          this.spd   = Math.random() * 0.4 + 0.06;
+        };
+        this.reset(isInit);
+
+        this.update = function() {
+          this.z  -= this.spd;
+          this.ph += this.phSpd;
+          if (this.z < -FOCAL - 300) this.reset(false);
+        };
+
+        this.draw = function() {
+          let x = this.x, y = this.y, z = this.z;
+          // rotY
+          let cY = Math.cos(rotY), sY = Math.sin(rotY);
+          let nx = x*cY + z*sY, nz = -x*sY + z*cY; x=nx; z=nz;
+          // rotX
+          let cX = Math.cos(rotX), sX = Math.sin(rotX);
+          let ny = y*cX - z*sX, nz2 = y*sX + z*cX; y=ny; z=nz2;
+          // autoZ
+          let cZ = Math.cos(rotZ), sZ = Math.sin(rotZ);
+          nx = x*cZ - y*sZ; ny = x*sZ + y*cZ; x=nx; y=ny;
+
+          const depth = FOCAL + z;
+          if (depth <= 1) return;
+          const sc = FOCAL / depth;
+          const px = x*sc + CX, py = y*sc + CY;
+          if (px < -20||px > W+20||py < -20||py > H+20) return;
+
+          const size  = this.sz * sc * 2.8;
+          const twink = 0.55 + 0.45 * Math.sin(this.ph);
+          const alpha = Math.min(1, this.op * sc * twink * 2.2);
+          if (alpha < 0.02 || size < 0.1) return;
+
+          ctx.beginPath();
+          ctx.arc(px, py, Math.max(0.2, size), 0, Math.PI*2);
+          ctx.fillStyle = `rgba(${this.color},${alpha})`;
+          ctx.fill();
+
+          if (size > 0.9) {
+            const g = ctx.createRadialGradient(px,py,0, px,py,size*4.5);
+            g.addColorStop(0, `rgba(${this.color},${alpha*0.4})`);
+            g.addColorStop(1, `rgba(${this.color},0)`);
+            ctx.beginPath();
+            ctx.arc(px, py, size*4.5, 0, Math.PI*2);
+            ctx.fillStyle = g;
+            ctx.fill();
+          }
+        };
+      }
+
+      let stars = [];
+
+      function init() {
+        resize();
+        stars = Array.from({length: COUNT}, () => new Star(true));
+        window.addEventListener('resize', resize, {passive:true});
+        document.addEventListener('mousemove', e => {
+          targetRotY = ((e.clientX/window.innerWidth)  - 0.5) * 0.55;
+          targetRotX = ((e.clientY/window.innerHeight) - 0.5) * 0.38;
+        }, {passive:true});
+        document.addEventListener('touchmove', e => {
+          const t = e.touches[0];
+          targetRotY = ((t.clientX/window.innerWidth)  - 0.5) * 0.3;
+          targetRotX = ((t.clientY/window.innerHeight) - 0.5) * 0.2;
+        }, {passive:true});
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, W, H);
+        rotX += (targetRotX - rotX) * 0.032;
+        rotY += (targetRotY - rotY) * 0.032;
+        rotZ += 0.00045;
+        stars.forEach(s => { s.update(); s.draw(); });
+        requestAnimationFrame(animate);
+      }
+
+      init();
+      requestAnimationFrame(animate);
+    })();
+
+    // ── 3D Card Tilt ──────────────────────────────────────────────
+    (function init3DTilt() {
+      const cards = document.querySelectorAll(
+        '.track-item, .fan-card, .offer__card'
+      );
+      cards.forEach(card => {
+        card.style.willChange = 'transform';
+        card.addEventListener('mousemove', e => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width  - 0.5;
+          const y = (e.clientY - r.top)  / r.height - 0.5;
+          card.style.transition = 'transform 0.08s ease';
+          card.style.transform  =
+            `perspective(900px) rotateX(${-y*14}deg) rotateY(${x*14}deg) scale(1.025)`;
+          card.style.boxShadow  =
+            `${-x*12}px ${-y*12}px 28px rgba(200,169,106,0.18)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transition = 'transform 0.55s ease, box-shadow 0.55s ease';
+          card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+          card.style.boxShadow  = '';
+        });
+      });
+    })();
   </script>
 </body>
 </html>
