@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Aura OS — The Custom AI Music System Behind Forever Still Music</title>
-  <meta name="description" content="Aura OS is a custom operating system built by Chrissy Schroer to create AI-powered music. LoRA-trained visuals, custom workflows, 32K+ collective plays on Forever Still Beauty — independent, no ads." />
+  <title>AURA — The Sovereign Operating System Behind Forever Still Music</title>
+  <meta name="description" content="AURA is the custom operating system Chrissy built to run all three of her brands and her home life from one place. Not an app. Not a subscription. A sovereign OS — every AI inside it knows her voice, her catalog, and her workflow." />
 
   <!-- SEO -->
-  <meta name="keywords" content="Aura OS, AI music operating system, custom AI DAW, LoRA music visuals, AI songwriting system, Forever Still Music, Chrissy Schroer" />
+  <meta name="keywords" content="AURA OS, sovereign operating system, digital twin, Forever Still Music, Chrissy Schroer, independent artist, AI workflow, custom OS" />
   <link rel="canonical" href="https://www.foreverstillmusic.com/aura-os" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Aura OS — The Custom AI Music System Behind Forever Still Music" />
-  <meta property="og:description" content="I didn't use a template. I built my own system. Aura OS is how Forever Still Music gets made." />
+  <meta property="og:title" content="AURA — The Sovereign Operating System Behind Forever Still Music" />
+  <meta property="og:description" content="I didn't buy a tool. I built an operating system. AURA runs my brands, my music, and my life — from one place." />
   <meta property="og:image" content="https://www.foreverstillmusic.com/images/hero.jpg" />
   <meta property="og:url" content="https://www.foreverstillmusic.com/aura-os" />
   <meta property="og:type" content="website" />
@@ -67,8 +67,8 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px; height: 80px; max-width: var(--max-w); margin: 0 auto;
     }
-    .nav__logo img { height: 80px; width: auto; display: block; padding: 6px 0; }
-    .nav__links { list-style: none; display: flex; gap: 36px; }
+    .nav__logo img { height: 90px; width: auto; display: block; padding: 6px 0; }
+    .nav__links { list-style: none; display: flex; gap: 22px; }
     .nav__links a {
       font-family: var(--font-sans); font-size: 11px; font-weight: 500;
       letter-spacing: 0.18em; text-transform: uppercase;
@@ -184,45 +184,42 @@
       border-left: 2px solid var(--gold); padding-left: 28px;
     }
 
-    /* ── CAPABILITIES GRID ───────────────────────────────────────── */
-    .cap-grid {
+    /* ── MODULE GRID ─────────────────────────────────────────────── */
+    .mod-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
       margin-top: 60px;
     }
-    @media (max-width: 768px) { .cap-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .mod-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .mod-grid { grid-template-columns: 1fr; } }
 
-    .cap-card {
+    .mod-card {
       background: var(--bg-soft); padding: 40px 32px;
       border: 1px solid var(--rule); transition: border-color 0.3s;
     }
-    .cap-card:hover { border-color: rgba(200,169,106,0.4); }
-    .cap-card__num {
+    .mod-card:hover { border-color: rgba(200,169,106,0.4); }
+    .mod-card--featured {
+      border-color: rgba(200,169,106,0.35);
+      background: #221e1a;
+    }
+    .mod-card--featured:hover { border-color: rgba(200,169,106,0.65); }
+
+    .mod-card__num {
       font-family: var(--font-sans); font-size: 10px; font-weight: 500;
       letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
       margin-bottom: 20px; display: block;
     }
-    .cap-card__title {
+    .mod-card__title {
       font-family: var(--font-display); font-size: 22px; font-weight: 400;
       color: var(--text); margin-bottom: 14px; line-height: 1.3;
     }
-    .cap-card p { font-size: 14px; line-height: 1.75; }
+    .mod-card p { font-size: 14px; line-height: 1.75; }
 
-    /* ── VIDEO SECTION ───────────────────────────────────────────── */
-    .video-wrap {
-      position: relative; background: #0d0d0d;
-      border: 1px solid var(--rule); border-radius: 2px; overflow: hidden;
-      aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
-    }
-    .video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .video-placeholder {
-      text-align: center; padding: 60px 40px;
-    }
-    .video-placeholder__icon {
-      font-size: 48px; margin-bottom: 20px; opacity: 0.4;
-    }
-    .video-placeholder p {
-      font-family: var(--font-sans); font-size: 13px;
-      color: var(--text-muted); letter-spacing: 0.08em;
+    .mod-card__tag {
+      display: inline-block; margin-top: 16px;
+      font-family: var(--font-sans); font-size: 9px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #1a1a1a; background: var(--gold);
+      padding: 4px 10px;
     }
 
     /* ── STATS ───────────────────────────────────────────────────── */
@@ -299,7 +296,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="index.html#offer">Shop</a></li>
         <li><a href="method.html">Your Song</a></li>
-        <li><a href="aura-os.html" class="active">Aura OS</a></li>
+        <li><a href="aura-os.html" class="active">Aura</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
@@ -315,36 +312,36 @@
     <a href="about.html">About</a>
     <a href="index.html#offer">Shop</a>
     <a href="method.html">Your Song</a>
-    <a href="aura-os.html">Aura OS</a>
+    <a href="aura-os.html">Aura</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <!-- ── Hero ─────────────────────────────────────────────────────── -->
   <div class="page-hero">
     <div class="page-hero__bg">
-      <img src="images/hero.jpg" alt="" aria-hidden="true" />
+      <img src="images/kids_band.jpg" alt="" aria-hidden="true" />
     </div>
     <div class="page-hero__content">
-      <span class="page-hero__script">Built from scratch</span>
-      <h1 class="page-hero__name">Aura <em>OS</em></h1>
-      <p class="page-hero__sub">A custom operating system built to make AI music the way I hear it in my head — not the way a template wants me to.</p>
+      <span class="page-hero__script">Built from scratch. Runs everything.</span>
+      <h1 class="page-hero__name">AURA — <em>The OS</em></h1>
+      <p class="page-hero__sub">A sovereign operating system built to run three brands and a full home life from one place — no SaaS, no subscriptions, no dependency on someone else's system.</p>
     </div>
   </div>
 
-  <!-- ── What Is Aura ──────────────────────────────────────────────── -->
+  <!-- ── What Is AURA ─────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="intro__inner">
         <div>
           <div class="rule"></div>
-          <span class="eyebrow">The system</span>
-          <h2>I didn't use someone else's tools.<br />I built <em>mine.</em></h2>
-          <p>Aura OS is the custom AI workflow system I built to create Forever Still Music. It's not a DAW. It's not a plugin. It's a purpose-built environment that handles everything from emotional prompt engineering to visual generation — all tuned to my voice, my face, and my story.</p>
-          <p>Every song on <em>Harder Than the Army</em> ran through Aura. Every visual you've seen of Forever Still was generated inside it. 32,000+ collective plays on Forever Still Beauty — independent, zero ads. One system.</p>
-          <p>I'm a U.S. Army veteran and solo mom of two. I didn't have a studio budget or a team. I had time, obsession, and a problem I needed to solve. Aura OS is what happened when I refused to settle for someone else's answer.</p>
+          <span class="eyebrow">What it is</span>
+          <h2>I didn't buy a tool.<br />I built <em>an operating system.</em></h2>
+          <p>AURA is my digital twin. It's a sovereign operating system I built to run my entire ecosystem — Forever Still Beauty, Studio, Music, and my home life as a solo mom — from one place.</p>
+          <p>It runs locally. No SaaS. No subscriptions. No third-party platform holding my workflow hostage. Every AI inside AURA is wired to my voice, my catalog, my brand standards, and my actual life.</p>
+          <p>It's not an app I bought. It's an OS I built so I can run an ecosystem solo without losing my mind.</p>
         </div>
         <div>
-          <p class="intro__lead">"AI didn't make me an artist. It gave me a system powerful enough to keep up with what I already was."</p>
+          <p class="intro__lead">"AURA is a custom operating system I built to run all three of my brands plus my home life from one place — every AI inside it knows my voice, my catalog, and my workflow."</p>
         </div>
       </div>
 
@@ -354,93 +351,98 @@
           <span class="stat__label">Collective plays</span>
         </div>
         <div class="stat">
-          <span class="stat__num">11</span>
-          <span class="stat__label">Tracks — one album</span>
+          <span class="stat__num">9</span>
+          <span class="stat__label">Modules — one OS</span>
         </div>
         <div class="stat">
           <span class="stat__num">$0</span>
           <span class="stat__label">Ad spend</span>
         </div>
         <div class="stat">
-          <span class="stat__num">1</span>
-          <span class="stat__label">Custom OS. All of it.</span>
+          <span class="stat__num">3</span>
+          <span class="stat__label">Brands. One system.</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Capabilities ───────────────────────────────────────────────── -->
+  <!-- ── The 9 Modules ────────────────────────────────────────────── -->
   <section class="section section--soft">
     <div class="container">
       <div class="rule"></div>
-      <span class="eyebrow">What Aura OS does</span>
-      <h2>Every part of the music is <em>intentional.</em></h2>
+      <span class="eyebrow">Inside AURA</span>
+      <h2>Nine modules. <em>One ecosystem.</em></h2>
 
-      <div class="cap-grid">
-        <div class="cap-card">
-          <span class="cap-card__num">01 — Sound</span>
-          <div class="cap-card__title">AI Music Generation</div>
-          <p>Custom prompt architecture tuned to my emotional vocabulary. Not generic. Not random. Aura produces the specific feeling I'm after — grief, grit, stillness, defiance.</p>
+      <div class="mod-grid">
+
+        <div class="mod-card">
+          <span class="mod-card__num">01 — Strategy</span>
+          <div class="mod-card__title">War Room</div>
+          <p>Brand strategy, campaign planning, and decision architecture. The command center where direction gets set before anything else moves.</p>
         </div>
-        <div class="cap-card">
-          <span class="cap-card__num">02 — Visuals</span>
-          <div class="cap-card__title">LoRA-Trained on My Face</div>
-          <p>I trained a LoRA model on my own likeness so the visual identity of Forever Still Music is actually me — not a stock avatar or AI-generic face. Every image is mine.</p>
+
+        <div class="mod-card">
+          <span class="mod-card__num">02 — Studio</span>
+          <div class="mod-card__title">Studio Workshop</div>
+          <p>Visual production, content creation, and creative output for Forever Still Studio — all aligned to brand voice and identity standards built into the system.</p>
         </div>
-        <div class="cap-card">
-          <span class="cap-card__num">03 — Workflow</span>
-          <div class="cap-card__title">End-to-End Production</div>
-          <p>From lyrics to audio to art to release — Aura OS connects every step. Built for a solo operator who needs a full production pipeline without a full production team.</p>
+
+        <div class="mod-card mod-card--featured">
+          <span class="mod-card__num">03 — Music</span>
+          <div class="mod-card__title">Music Workshop</div>
+          <p>Lyric forge, release tracking, and a Songwriting Coach trained on Chrissy's sonic fingerprint. Every tool inside this module knows the catalog, the tone, and the story behind the music.</p>
+          <span class="mod-card__tag">You're here</span>
         </div>
-        <div class="cap-card">
-          <span class="cap-card__num">04 — Story</span>
-          <div class="cap-card__title">Emotional Prompt Engineering</div>
-          <p>The hardest part of AI music isn't the tool — it's knowing what to ask for. Aura is built around a method for translating lived experience into prompts that produce real feeling.</p>
+
+        <div class="mod-card">
+          <span class="mod-card__num">04 — Beauty</span>
+          <div class="mod-card__title">Beauty Workshop</div>
+          <p>Workflow and content engine for Forever Still Beauty — the label behind the plays. Brand voice, product storytelling, and campaign assets built from the same root system.</p>
         </div>
-        <div class="cap-card">
-          <span class="cap-card__num">05 — Identity</span>
-          <div class="cap-card__title">Brand-Consistent Output</div>
-          <p>Every output — audio, visual, copy — runs through a brand layer that keeps Forever Still cohesive. Dark. Gold. Honest. That's not a mood board. It's a constraint baked into the system.</p>
+
+        <div class="mod-card">
+          <span class="mod-card__num">05 — Safety</span>
+          <div class="mod-card__title">Guardian</div>
+          <p>Home security, family safety protocols, and contingency planning. Solo mom infrastructure. Because running a business and raising two boys at the same time requires systems, not just hope.</p>
         </div>
-        <div class="cap-card">
-          <span class="cap-card__num">06 — Scale</span>
-          <div class="cap-card__title">Built for One. Scales to Many.</div>
-          <p>The custom song service on this site — <a href="method.html" style="color:var(--gold);text-decoration:none;">Your Life, Your Song</a> — runs on Aura. Your story goes in. A real song comes out.</p>
+
+        <div class="mod-card">
+          <span class="mod-card__num">06 — Foundation</span>
+          <div class="mod-card__title">Core</div>
+          <p>The foundation layer connecting all eight modules. Shared memory, brand standards, voice calibration, and workflow logic that keeps the whole ecosystem coherent.</p>
         </div>
+
+        <div class="mod-card">
+          <span class="mod-card__num">07 — Family</span>
+          <div class="mod-card__title">Boys Workshop</div>
+          <p>Education support, scheduling, and parenting workflows for two boys. Built because their lives don't pause when the brands need to ship.</p>
+        </div>
+
+        <div class="mod-card">
+          <span class="mod-card__num">08 — Rhythm</span>
+          <div class="mod-card__title">Rituals</div>
+          <p>Daily rhythms, routines, and practices that keep a solo operator sustainable. Because burnout isn't a productivity problem — it's a systems problem.</p>
+        </div>
+
+        <div class="mod-card">
+          <span class="mod-card__num">09 — Sanctuary</span>
+          <div class="mod-card__title">Sanctum</div>
+          <p>Personal space. Rest, reflection, and the private work that never makes it onto a website. The part of the OS that exists for her, not for output.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── Screen Recording ───────────────────────────────────────────── -->
-  <section class="section">
-    <div class="container">
-      <div class="rule"></div>
-      <span class="eyebrow">See it in action</span>
-      <h2>Aura OS — <em>Inside the System</em></h2>
-      <p>A real look at the workflow. No cuts. No cleanup. Just the actual process of building a song from an emotional brief inside Aura OS.</p>
-
-      <div class="video-wrap" style="margin-top: 40px;" id="videoWrap">
-        <!-- Drop your screen recording here: replace the src with your video file path -->
-        <!-- <video controls poster="images/hero.jpg">
-          <source src="videos/aura-os-demo.mp4" type="video/mp4" />
-        </video> -->
-        <div class="video-placeholder">
-          <div class="video-placeholder__icon">▶</div>
-          <p>Screen recording coming soon.<br />Drop your video file in <code style="color:var(--gold);">/videos/aura-os-demo.mp4</code> and uncomment the video tag above.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Why It Matters ─────────────────────────────────────────────── -->
+  <!-- ── Why It Exists ─────────────────────────────────────────────── -->
   <section class="section section--warm">
     <div class="container" style="max-width: 760px;">
       <div class="rule"></div>
-      <span class="eyebrow">Why this exists</span>
-      <h2>The music industry didn't have a seat for me.<br />So I <em>built the table.</em></h2>
-      <p>I'm not a tech founder. I'm not a music executive. I'm a veteran who came home, raised two boys alone, survived things I don't list on websites, and found that the only way to say what I needed to say was to build something that didn't exist yet.</p>
-      <p>Aura OS is proof that you don't need a label, a studio, or a team. You need a story worth telling and the willingness to figure out how to tell it. I figured it out. Then I built it into a system. Then I used that system to make an album that's touched 32,000+ people with no advertising.</p>
-      <p>That's what Aura does. That's what it's for.</p>
+      <span class="eyebrow">Why it exists</span>
+      <h2>The tools weren't built for someone like me.<br />So I <em>built the tools.</em></h2>
+      <p>I'm a U.S. Army veteran and solo mom of two. I run three brands. I raise two boys alone. I write, produce, and release music independently. There is no team. There is no backup plan.</p>
+      <p>Every SaaS tool I tried assumed I had a department. Every AI product assumed I'd outsource context. AURA exists because I needed something that knew my whole life — not just one slice of it — and could actually help me run it.</p>
+      <p>32,000+ collective plays. Zero ads. No label but Forever Still Beauty. Built on a system nobody sold me, because it didn't exist until I made it.</p>
 
       <div class="cta-row">
         <a href="index.html#music" class="btn btn--primary">Listen to the Album</a>
@@ -458,11 +460,11 @@
           <li><a href="index.html#music">Listen</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="method.html">Your Song</a></li>
-          <li><a href="aura-os.html">Aura OS</a></li>
+          <li><a href="aura-os.html">Aura</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <p class="footer__copy">&copy; 2026 Forever Still Music. Powered by Aura OS. &nbsp;·&nbsp; <a href="mailto:chrissy@foreverstillstudio.com" style="color:var(--gold);text-decoration:none;">chrissy@foreverstillstudio.com</a></p>
+      <p class="footer__copy">&copy; 2026 Forever Still Music. &nbsp;·&nbsp; <a href="mailto:chrissy@foreverstillstudio.com" style="color:var(--gold);text-decoration:none;">chrissy@foreverstillstudio.com</a></p>
     </div>
   </footer>
 
