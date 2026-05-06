@@ -2198,9 +2198,10 @@ With 30,000+ plays on SoundCloud and growing — without ads, labels, or industr
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const hero = canvas.parentElement;
         W = hero.offsetWidth; H = hero.offsetHeight;
+        if (!W || !H) { W = window.innerWidth; H = window.innerHeight; }
         canvas.width  = W * dpr; canvas.height = H * dpr;
         canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
-        ctx.scale(dpr, dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // reset before scaling — prevents accumulation
         CX = W / 2; CY = H / 2;
       }
 
@@ -2290,8 +2291,11 @@ With 30,000+ plays on SoundCloud and growing — without ads, labels, or industr
         requestAnimationFrame(animate);
       }
 
-      init();
-      requestAnimationFrame(animate);
+      // Delay init until layout is painted so hero has real dimensions
+      window.addEventListener('load', function() {
+        init();
+        requestAnimationFrame(animate);
+      });
     })();
 
     // ── 3D Card Tilt ──────────────────────────────────────────────
