@@ -247,6 +247,9 @@
       animation: logoFloat 4s ease-in-out infinite;
       transition: filter 0.3s ease;
     }
+    @media (max-width: 768px) {
+      .nav__logo img { height: 80px !important; }
+    }
     .nav__logo img:hover {
       filter: sepia(0.4) saturate(2.2) hue-rotate(-8deg) brightness(1.05) contrast(1.05);
     }
@@ -1408,7 +1411,7 @@
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav__inner">
-        <a href="/" class="nav__logo"><img src="images/logo.png" alt="Forever Still Music" style="height:110px;width:auto;display:block;padding:4px 0;"></a>
+        <a href="/" class="nav__logo"><img src="images/logo.png" alt="Forever Still Music" style="height:130px;width:auto;display:block;padding:4px 0;"></a>
         <ul class="nav__links">
           <li><a href="#music">Listen</a></li>
           <li><a href="#about">About</a></li>
