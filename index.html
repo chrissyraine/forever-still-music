@@ -2282,11 +2282,12 @@ With 34,000+ plays on SoundCloud and growing — without ads, labels, or industr
         requestAnimationFrame(animate);
       }
 
-      // Delay init until layout is painted so hero has real dimensions
-      window.addEventListener('load', function() {
-        init();
-        requestAnimationFrame(animate);
-      });
+      // Fire immediately if page already loaded, otherwise wait
+      if (document.readyState === 'complete') {
+        init(); requestAnimationFrame(animate);
+      } else {
+        window.addEventListener('load', function() { init(); requestAnimationFrame(animate); });
+      }
     })();
 
     // ── 3D Card Tilt ──────────────────────────────────────────────
