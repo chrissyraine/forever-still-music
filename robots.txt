@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.foreverstillmusic.com/sitemap.xml
+Sitemap: https://www.foreverstillbeauty.com/sitemap.xml
