@@ -1,5 +1,29 @@
 {
   "buildCommand": null,
   "outputDirectory": ".",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "foreverstillmusic.com"
+        }
+      ],
+      "destination": "https://www.foreverstillbeauty.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.foreverstillmusic.com"
+        }
+      ],
+      "destination": "https://www.foreverstillbeauty.com/$1",
+      "permanent": true
+    }
+  ]
 }
