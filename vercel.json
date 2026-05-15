@@ -3,7 +3,6 @@
   "outputDirectory": ".",
   "framework": null,
   "cleanUrls": false,
-  "error404": "404.html",
   "redirects": [
     {
       "source": "/(.*)",
