@@ -172,8 +172,6 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
       padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
@@ -183,9 +181,52 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 40%, rgba(200,169,106,0.07) 0%, transparent 65%),
-                  radial-gradient(ellipse at 20% 80%, rgba(196,137,122,0.04) 0%, transparent 55%);
+      background: radial-gradient(ellipse at 30% 50%, rgba(200,169,106,0.07) 0%, transparent 65%),
+                  radial-gradient(ellipse at 80% 80%, rgba(196,137,122,0.04) 0%, transparent 55%);
       pointer-events: none;
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .hero__image {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero__product-img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 4px;
+      box-shadow:
+        -16px 16px 48px rgba(0,0,0,0.55),
+        -4px 4px 16px rgba(0,0,0,0.35),
+        0 0 80px rgba(200,169,106,0.08);
+    }
+
+    .hero__image::after {
+      content: '';
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65%;
+      height: 40px;
+      background: rgba(200,169,106,0.1);
+      filter: blur(24px);
+      border-radius: 50%;
     }
 
     .hero__eyebrow {
@@ -195,30 +236,27 @@
       text-transform: uppercase;
       color: var(--gold);
       opacity: 0.85;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: block;
     }
 
     .hero__script {
       font-family: var(--font-script);
-      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-size: clamp(3rem, 6vw, 5rem);
       color: var(--gold);
       line-height: 1;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       display: block;
       opacity: 0.9;
     }
 
     .hero__title {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
       font-weight: 300;
       line-height: 1.3;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       color: var(--text-soft);
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .hero__title em {
@@ -235,14 +273,14 @@
       color: var(--bg);
       background: var(--gold);
       padding: 6px 20px;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
 
     .hero__desc {
       font-size: 16px;
       color: var(--text-muted);
-      max-width: 480px;
-      margin: 0 auto 48px;
+      max-width: 440px;
+      margin-bottom: 40px;
       line-height: 1.85;
     }
 
@@ -466,6 +504,15 @@
 
     /* ── Responsive ────────────────────────────────────────── */
     @media (max-width: 900px) {
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+      .hero__content { align-items: center; }
+      .hero__image { order: -1; }
+      .hero__product-img { max-width: 320px; }
+      .hero__desc { margin-left: auto; margin-right: auto; }
       .what__grid { grid-template-columns: 1fr; gap: 16px; }
     }
 
@@ -473,6 +520,7 @@
       .container { padding: 0 24px; }
       .hero { padding: 140px 0 80px; }
       .btn-primary { display: block; text-align: center; }
+      .hero__product-img { max-width: 260px; }
     }
   </style>
 </head>
@@ -514,24 +562,35 @@
   <!-- ── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="container">
-      <span class="hero__eyebrow">Free Download · No Email Required</span>
-      <span class="hero__script">9pm to Sold Out</span>
-      <h1 class="hero__title">
-        A free sampler for the mom building something real<br>
-        <em>after the kids go to bed.</em>
-      </h1>
-      <div>
-        <span class="hero__free-badge">100% Free</span>
+      <div class="hero__inner">
+
+        <div class="hero__content">
+          <span class="hero__eyebrow">Free Download · No Email Required</span>
+          <span class="hero__script">5 Free Prompts</span>
+          <h1 class="hero__title">
+            A preview of<br><em>9pm to Sold-Out.</em>
+          </h1>
+          <span class="hero__free-badge">100% Free</span>
+          <p class="hero__desc">
+            A taste of the full guide — <strong>real AI prompts</strong> written for the
+            after-hours entrepreneur. Copy, content, and offers that sound like
+            <em>you</em>, not a robot.
+          </p>
+          <a href="https://payhip.com/b/CJByK" target="_blank" rel="noopener" class="btn-primary">
+            Download Free →
+          </a>
+          <p class="hero__note">Instant download &nbsp;·&nbsp; Works in ChatGPT, Claude &amp; Gemini</p>
+        </div>
+
+        <div class="hero__image">
+          <img
+            src="images/5-free-prompts.jpg"
+            alt="5 Free Prompts — A preview of 9pm to Sold-Out by Christina Schroer"
+            class="hero__product-img"
+          />
+        </div>
+
       </div>
-      <p class="hero__desc">
-        A taste of the full guide — <strong>real AI prompts</strong> written for the
-        after-hours entrepreneur. Copy, content, and offers that sound like
-        <em>you</em>, not a robot.
-      </p>
-      <a href="https://payhip.com/b/CJByK" target="_blank" rel="noopener" class="btn-primary">
-        Download the Free Sampler →
-      </a>
-      <p class="hero__note">Instant download &nbsp;·&nbsp; Works in ChatGPT, Claude &amp; Gemini</p>
     </div>
   </section>
 
