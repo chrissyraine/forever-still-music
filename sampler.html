@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="msvalidate.01" content="E0C6E18F4C0CC4E89583FDD7A9A06F0D" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>9pm to Sold Out — 25 AI Prompts for the Mom Building a Business After Bedtime</title>
-  <meta name="description" content="25 AI prompts written for the mom building something real after the kids go to bed. Copy, offers, content — done before midnight. By Christina Schroer.">
+  <title>Free Sampler — 9pm to Sold Out | Forever Still Music</title>
+  <meta name="description" content="Get a free taste of 9pm to Sold Out — AI prompts built for the mom building a business after bedtime. By Christina Schroer.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="9pm to Sold Out — 25 AI Prompts for the Mom Building a Business After Bedtime">
-  <meta property="og:description" content="25 prompts. Real results. Built for the after-hours entrepreneur.">
-  <meta property="og:image" content="https://www.foreverstillbeauty.com/images/9pm-to-sold-out.jpg">
+  <meta property="og:title" content="Free Sampler — 9pm to Sold Out">
+  <meta property="og:description" content="Free AI prompts for the mom building something real after bedtime.">
+  <meta property="og:image" content="https://www.foreverstillbeauty.com/images/album-cover.jpg">
   <meta property="og:url" content="https://www.foreverstillbeauty.com/sampler.html">
-  <meta property="og:type" content="product">
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="Forever Still Music">
   <link rel="canonical" href="https://www.foreverstillbeauty.com/sampler.html">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="9pm to Sold Out — 25 AI Prompts">
-  <meta name="twitter:description" content="For the mom building something real after bedtime.">
-  <meta name="twitter:image" content="https://www.foreverstillbeauty.com/images/9pm-to-sold-out.jpg">
+  <meta name="twitter:title" content="Free Sampler — 9pm to Sold Out">
+  <meta name="twitter:description" content="Free AI prompts for the mom building something real after bedtime.">
+  <meta name="twitter:image" content="https://www.foreverstillbeauty.com/images/album-cover.jpg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,7 +35,6 @@
       --bg-soft:     #1a0d14;
       --bg-warm:     #241218;
       --gold:        #C8A96A;
-      --gold-dim:    #a8894a;
       --blush:       #d4a5a5;
       --text:        #f0ebe4;
       --text-muted:  #9c8c82;
@@ -43,7 +42,6 @@
       --rule:        rgba(200, 169, 106, 0.18);
 
       --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-serif:   'Playfair Display', Georgia, serif;
       --font-script:  'Allura', cursive;
       --font-sans:    'Inter', system-ui, sans-serif;
 
@@ -124,12 +122,7 @@
       cursor: pointer;
       padding: 4px;
     }
-    .nav__hamburger span {
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--text);
-    }
+    .nav__hamburger span { display: block; width: 24px; height: 1px; background: var(--text); }
 
     /* ── Mobile Drawer ──────────────────────────────────────── */
     .nav__drawer {
@@ -179,7 +172,9 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 140px 0 80px;
+      justify-content: center;
+      text-align: center;
+      padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
     }
@@ -188,59 +183,71 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 60% 50%, rgba(200,169,106,0.06) 0%, transparent 70%),
-                  radial-gradient(ellipse at 20% 80%, rgba(196,137,122,0.05) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 40%, rgba(200,169,106,0.07) 0%, transparent 65%),
+                  radial-gradient(ellipse at 20% 80%, rgba(196,137,122,0.04) 0%, transparent 55%);
       pointer-events: none;
     }
 
-    .hero__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .hero__label {
-      font-family: var(--font-script);
-      font-size: 1.5rem;
+    .hero__eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
       color: var(--gold);
       opacity: 0.85;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hero__script {
+      font-family: var(--font-script);
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      color: var(--gold);
+      line-height: 1;
       margin-bottom: 16px;
       display: block;
+      opacity: 0.9;
     }
 
     .hero__title {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
       font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 20px;
+      line-height: 1.3;
+      margin-bottom: 32px;
+      color: var(--text-soft);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero__title em {
       font-style: italic;
-      color: var(--gold);
+      color: var(--text);
     }
 
-    .hero__sub {
-      font-size: 14px;
+    .hero__free-badge {
+      display: inline-block;
+      font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 32px;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 6px 20px;
+      margin-bottom: 40px;
     }
 
     .hero__desc {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--text-soft);
-      max-width: 440px;
-      margin-bottom: 48px;
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 48px;
+      line-height: 1.85;
     }
 
     .hero__desc strong {
-      color: var(--text);
+      color: var(--text-soft);
       font-weight: 500;
     }
 
@@ -253,7 +260,7 @@
       text-transform: uppercase;
       color: var(--bg);
       background: var(--gold);
-      padding: 16px 40px;
+      padding: 18px 48px;
       transition: background 0.2s, transform 0.15s;
     }
     .btn-primary:hover {
@@ -261,88 +268,26 @@
       transform: translateY(-1px);
     }
 
-    .btn-secondary {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 15px 36px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn-secondary:hover {
-      background: var(--gold);
-      color: var(--bg);
-    }
-
-    .hero__ctas {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .hero__social-proof {
-      margin-top: 36px;
+    .hero__note {
+      margin-top: 20px;
       font-size: 12px;
       color: var(--text-muted);
-      letter-spacing: 0.08em;
     }
 
-    .hero__social-proof span {
-      color: var(--gold);
-    }
-
-    /* Book cover */
-    .hero__book {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero__book-img {
-      width: 100%;
-      max-width: 380px;
-      border-radius: 2px;
-      box-shadow:
-        -12px 12px 40px rgba(0,0,0,0.6),
-        -4px 4px 12px rgba(0,0,0,0.4),
-        0 0 60px rgba(200,169,106,0.08);
-    }
-
-    .hero__book::before {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 40px;
-      background: rgba(200,169,106,0.12);
-      filter: blur(20px);
-      border-radius: 50%;
-    }
-
-    /* ── What's Inside ─────────────────────────────────────── */
-    .inside {
-      padding: 100px 0;
-      border-top: 1px solid var(--rule);
-    }
-
-    .inside__header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .rule {
+    /* ── Divider ───────────────────────────────────────────── */
+    .rule-center {
       width: 60px;
       height: 1px;
       background: var(--gold);
-      margin: 0 auto 28px;
-      opacity: 0.5;
+      margin: 0 auto;
+      opacity: 0.35;
+    }
+
+    /* ── What You Get ──────────────────────────────────────── */
+    .what {
+      padding: 100px 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
     }
 
     .section-label {
@@ -353,6 +298,7 @@
       color: var(--gold);
       opacity: 0.8;
       margin-bottom: 16px;
+      display: block;
     }
 
     .section-title {
@@ -360,6 +306,7 @@
       font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 300;
       line-height: 1.25;
+      margin-bottom: 64px;
     }
 
     .section-title em {
@@ -367,64 +314,59 @@
       color: var(--gold);
     }
 
-    .inside__grid {
+    .what__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: 24px;
+      text-align: left;
     }
 
-    .inside__card {
+    .what__card {
       background: var(--bg-soft);
       border: 1px solid var(--rule);
-      padding: 36px 32px;
+      padding: 40px 32px;
       transition: border-color 0.2s;
     }
 
-    .inside__card:hover {
-      border-color: rgba(200,169,106,0.35);
-    }
+    .what__card:hover { border-color: rgba(200,169,106,0.35); }
 
-    .inside__num {
+    .what__icon {
       font-family: var(--font-script);
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       color: var(--gold);
-      opacity: 0.4;
+      opacity: 0.5;
       line-height: 1;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
-    .inside__card-title {
+    .what__card-title {
       font-family: var(--font-display);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 400;
       margin-bottom: 10px;
     }
 
-    .inside__card-desc {
+    .what__card-desc {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* ── For You ───────────────────────────────────────────── */
     .for-you {
       padding: 80px 0;
       background: var(--bg-soft);
-    }
-
-    .for-you__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+      text-align: center;
     }
 
     .for-you__list {
       list-style: none;
-      display: flex;
+      display: inline-flex;
       flex-direction: column;
-      gap: 16px;
-      margin-top: 40px;
+      gap: 14px;
+      text-align: left;
+      margin: 40px auto 0;
+      max-width: 500px;
     }
 
     .for-you__list li {
@@ -440,45 +382,11 @@
       content: '—';
       color: var(--gold);
       flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .for-you__right {
-      text-align: center;
-    }
-
-    .for-you__price-block {
-      display: inline-block;
-      border: 1px solid var(--rule);
-      padding: 48px 56px;
-      margin-bottom: 32px;
-    }
-
-    .for-you__price-label {
-      font-size: 10px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .for-you__price {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      font-weight: 300;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .for-you__price-note {
-      font-size: 12px;
-      color: var(--text-muted);
     }
 
     /* ── CTA Banner ────────────────────────────────────────── */
     .cta-banner {
-      padding: 100px 0;
+      padding: 110px 0;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -488,36 +396,33 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(200,169,106,0.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(200,169,106,0.07) 0%, transparent 65%);
     }
 
     .cta-banner__script {
       font-family: var(--font-script);
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       color: var(--gold);
-      opacity: 0.6;
+      opacity: 0.65;
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .cta-banner__title {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
       font-weight: 300;
       margin-bottom: 20px;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
-    .cta-banner__title em {
-      font-style: italic;
-      color: var(--gold);
-    }
+    .cta-banner__title em { font-style: italic; color: var(--gold); }
 
     .cta-banner__sub {
       font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 40px;
-      max-width: 480px;
+      margin-bottom: 44px;
+      max-width: 420px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -540,6 +445,8 @@
       display: flex;
       gap: 32px;
       list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .footer__links a {
@@ -550,7 +457,6 @@
       color: var(--text-muted);
       transition: color 0.2s;
     }
-
     .footer__links a:hover { color: var(--gold); }
 
     .footer__copy {
@@ -560,38 +466,13 @@
 
     /* ── Responsive ────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .hero__inner,
-      .for-you__inner {
-        grid-template-columns: 1fr;
-        gap: 56px;
-      }
-
-      .hero__book {
-        order: -1;
-      }
-
-      .hero__book-img {
-        max-width: 280px;
-        margin: 0 auto;
-      }
-
-      .inside__grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .for-you__right {
-        order: -1;
-      }
+      .what__grid { grid-template-columns: 1fr; gap: 16px; }
     }
 
     @media (max-width: 600px) {
       .container { padding: 0 24px; }
-      .hero { padding: 100px 0 60px; }
-      .hero__ctas { flex-direction: column; }
-      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-      .for-you__price-block { padding: 36px 32px; }
-      .footer__links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+      .hero { padding: 140px 0 80px; }
+      .btn-primary { display: block; text-align: center; }
     }
   </style>
 </head>
@@ -610,7 +491,7 @@
           <li><a href="/contact.html">Contact</a></li>
           <li><a href="/beauty.html">Beauty</a></li>
         </ul>
-        <a href="https://payhip.com/b/91G3s" target="_blank" rel="noopener" class="nav__cta">Get the Guide</a>
+        <a href="https://payhip.com/b/CJByK" target="_blank" rel="noopener" class="nav__cta">Get it Free</a>
         <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -627,143 +508,88 @@
     <a href="/method.html">Your Song</a>
     <a href="/contact.html">Contact</a>
     <a href="/beauty.html">Beauty</a>
-    <a href="https://payhip.com/b/91G3s" target="_blank" rel="noopener" style="color: var(--gold); margin-top: 16px;">Get the Guide →</a>
+    <a href="https://payhip.com/b/CJByK" target="_blank" rel="noopener" style="color: var(--gold); margin-top: 16px;">Get it Free →</a>
   </nav>
 
   <!-- ── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="container">
-      <div class="hero__inner">
-
-        <div class="hero__content">
-          <span class="hero__label">by Christina Schroer</span>
-          <h1 class="hero__title">
-            9pm<br>to<br><em>Sold Out.</em>
-          </h1>
-          <p class="hero__sub">Volume One &nbsp;·&nbsp; 25 AI Prompts</p>
-          <p class="hero__desc">
-            You have <strong>45 minutes</strong> after the kids are asleep.
-            These 25 prompts turn that window into real copy, real offers,
-            and real sales — without burning out or faking it.
-          </p>
-          <div class="hero__ctas">
-            <a href="https://payhip.com/b/91G3s" target="_blank" rel="noopener" class="btn-primary">
-              Get the Guide →
-            </a>
-          </div>
-          <p class="hero__social-proof">
-            Instant digital download &nbsp;·&nbsp; <span>Works in ChatGPT, Claude &amp; Gemini</span>
-          </p>
-        </div>
-
-        <div class="hero__book">
-          <img
-            src="images/9pm-to-sold-out.jpg"
-            alt="9pm to Sold Out — 25 AI Prompts for the Mom Building a Business After Bedtime, by Christina Schroer"
-            class="hero__book-img"
-          />
-        </div>
-
+      <span class="hero__eyebrow">Free Download · No Email Required</span>
+      <span class="hero__script">9pm to Sold Out</span>
+      <h1 class="hero__title">
+        A free sampler for the mom building something real<br>
+        <em>after the kids go to bed.</em>
+      </h1>
+      <div>
+        <span class="hero__free-badge">100% Free</span>
       </div>
+      <p class="hero__desc">
+        A taste of the full guide — <strong>real AI prompts</strong> written for the
+        after-hours entrepreneur. Copy, content, and offers that sound like
+        <em>you</em>, not a robot.
+      </p>
+      <a href="https://payhip.com/b/CJByK" target="_blank" rel="noopener" class="btn-primary">
+        Download the Free Sampler →
+      </a>
+      <p class="hero__note">Instant download &nbsp;·&nbsp; Works in ChatGPT, Claude &amp; Gemini</p>
     </div>
   </section>
 
   <!-- ── What's Inside ───────────────────────────────────────── -->
-  <section class="inside">
+  <section class="what">
     <div class="container">
+      <span class="section-label">Inside the sampler</span>
+      <h2 class="section-title">A few prompts to show you<br>what's <em>possible.</em></h2>
 
-      <div class="inside__header">
-        <div class="rule"></div>
-        <p class="section-label">Inside the guide</p>
-        <h2 class="section-title">25 prompts. Every stage<br>of your <em>after-hours business.</em></h2>
-      </div>
-
-      <div class="inside__grid">
-        <div class="inside__card">
-          <div class="inside__num">01</div>
-          <h3 class="inside__card-title">Copy That Sells</h3>
-          <p class="inside__card-desc">Product descriptions, launch posts, and sales page copy — written in your voice, not robot voice.</p>
+      <div class="what__grid">
+        <div class="what__card">
+          <div class="what__icon">01</div>
+          <h3 class="what__card-title">Your Voice, Not Robot Voice</h3>
+          <p class="what__card-desc">A prompt that pulls your real tone out of AI so everything you write sounds like you — not a template.</p>
         </div>
-        <div class="inside__card">
-          <div class="inside__num">02</div>
-          <h3 class="inside__card-title">Content That Connects</h3>
-          <p class="inside__card-desc">Instagram captions, story hooks, and reel scripts that feel real because they're built from your actual life.</p>
+        <div class="what__card">
+          <div class="what__icon">02</div>
+          <h3 class="what__card-title">One Piece of Content, Fast</h3>
+          <p class="what__card-desc">From blank screen to posted in under 20 minutes. Real copy for your real offer.</p>
         </div>
-        <div class="inside__card">
-          <div class="inside__num">03</div>
-          <h3 class="inside__card-title">Offers That Convert</h3>
-          <p class="inside__card-desc">Naming, pricing, and positioning your digital product so it sells while you sleep — literally.</p>
-        </div>
-        <div class="inside__card">
-          <div class="inside__num">04</div>
-          <h3 class="inside__card-title">Email Sequences</h3>
-          <p class="inside__card-desc">Welcome flows, launch sequences, and follow-ups that nurture without requiring you to be online 24/7.</p>
-        </div>
-        <div class="inside__card">
-          <div class="inside__num">05</div>
-          <h3 class="inside__card-title">Brand Voice Foundation</h3>
-          <p class="inside__card-desc">One prompt that extracts your unique voice and turns it into a repeatable guide every AI tool can use.</p>
-        </div>
-        <div class="inside__card">
-          <div class="inside__num">06</div>
-          <h3 class="inside__card-title">The 9pm Workflow</h3>
-          <p class="inside__card-desc">The exact sequence to go from idea to posted content in under 45 minutes — including which prompts to run first.</p>
+        <div class="what__card">
+          <div class="what__icon">03</div>
+          <h3 class="what__card-title">The After-Hours Workflow</h3>
+          <p class="what__card-desc">How to make the most of your 9pm window without burning out before midnight.</p>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- ── For You ──────────────────────────────────────────────── -->
   <section class="for-you">
     <div class="container">
-      <div class="for-you__inner">
-
-        <div class="for-you__left">
-          <p class="section-label">Is this for you?</p>
-          <h2 class="section-title">Built for the mom<br>who's <em>already doing it.</em></h2>
-          <ul class="for-you__list">
-            <li>You have a product, a service, or an idea — and zero time to market it during the day</li>
-            <li>You've tried AI and gotten results that sound nothing like you</li>
-            <li>You want copy that converts without hiring a copywriter</li>
-            <li>You're building something real between bedtime and midnight</li>
-            <li>You just need someone to hand you the prompts that already work</li>
-          </ul>
-        </div>
-
-        <div class="for-you__right">
-          <div class="for-you__price-block">
-            <p class="for-you__price-label">Digital Download</p>
-            <div class="for-you__price">$9</div>
-            <p class="for-you__price-note">Instant access · PDF + prompt doc</p>
-          </div>
-          <a href="https://payhip.com/b/91G3s" target="_blank" rel="noopener" class="btn-primary" style="display:block; text-align:center; margin-bottom:16px;">
-            Get the Guide — $9 →
-          </a>
-          <p style="font-size:12px; color:var(--text-muted); text-align:center;">
-            Works in ChatGPT, Claude &amp; Gemini.<br>
-            No subscription. No fluff. Just the prompts.
-          </p>
-        </div>
-
-      </div>
+      <span class="section-label">Is this for you?</span>
+      <h2 class="section-title">You'll love this if<br><em>any</em> of these are you.</h2>
+      <ul class="for-you__list">
+        <li>You're building something after bedtime and time is your rarest resource</li>
+        <li>You've tried AI and gotten results that sound nothing like you</li>
+        <li>You want to see if this stuff actually works before you commit to anything</li>
+        <li>You need copy that converts — without hiring someone or burning hours</li>
+        <li>You just want to try it, no strings attached</li>
+      </ul>
     </div>
   </section>
 
   <!-- ── CTA Banner ───────────────────────────────────────────── -->
   <section class="cta-banner">
     <div class="container">
-      <span class="cta-banner__script">The window is open.</span>
+      <span class="cta-banner__script">It's free. Just take it.</span>
       <h2 class="cta-banner__title">
-        Stop staring at a blank screen.<br>
-        Start with a <em>prompt that works.</em>
+        No email. No catch.<br>
+        Just <em>prompts that work.</em>
       </h2>
       <p class="cta-banner__sub">
-        25 prompts. One guide. Built by a mom who figured it out
-        one late night at a time.
+        Download the free sampler and see what's possible in
+        your next 9pm window.
       </p>
-      <a href="https://payhip.com/b/91G3s" target="_blank" rel="noopener" class="btn-primary">
-        Get 9pm to Sold Out — $9 →
+      <a href="https://payhip.com/b/CJByK" target="_blank" rel="noopener" class="btn-primary">
+        Download Free →
       </a>
     </div>
   </section>
