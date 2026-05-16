@@ -5,6 +5,16 @@
   "cleanUrls": false,
   "redirects": [
     {
+      "source": "/sampler",
+      "destination": "/sampler.html",
+      "permanent": false
+    },
+    {
+      "source": "/samples",
+      "destination": "/sampler.html",
+      "permanent": false
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
