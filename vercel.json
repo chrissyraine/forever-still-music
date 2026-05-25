@@ -5,6 +5,11 @@
   "cleanUrls": false,
   "redirects": [
     {
+      "source": "/almost",
+      "destination": "/almost.html",
+      "permanent": false
+    },
+    {
       "source": "/sampler",
       "destination": "/sampler.html",
       "permanent": false
