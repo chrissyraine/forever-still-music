@@ -769,6 +769,14 @@
     drawer.querySelectorAll('a').forEach(a =>
       a.addEventListener('click', () => drawer.classList.remove('open'))
     );
+
+    // Fix stale MailerLite success message date
+    const fixMLDate = new MutationObserver(() => {
+      document.querySelectorAll('.ml-form-successBody, .ml-subscribe-form-success, [class*="success"]').forEach(el => {
+        el.innerHTML = el.innerHTML.replace(/march\s+27(th)?/gi, 'July 3rd').replace(/March\s+27(th)?/g, 'July 3rd');
+      });
+    });
+    fixMLDate.observe(document.body, { childList: true, subtree: true, characterData: true });
   </script>
 
 </body>
