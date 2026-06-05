@@ -6,10 +6,18 @@
   "redirects": [
     { "source": "/almost",  "destination": "/almost.html",  "permanent": false },
     { "source": "/sampler", "destination": "/sampler.html", "permanent": false },
-    { "source": "/samples", "destination": "/sampler.html", "permanent": false }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "foreverstillmusic.com"     }], "destination": "/listen.html" },
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.foreverstillmusic.com" }], "destination": "/listen.html" }
+    { "source": "/samples", "destination": "/sampler.html", "permanent": false },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "foreverstillmusic.com" }],
+      "destination": "/listen.html",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.foreverstillmusic.com" }],
+      "destination": "/listen.html",
+      "permanent": false
+    }
   ]
 }
