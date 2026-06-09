@@ -320,7 +320,7 @@
       z-index: 0;
     }
 
-    .hero__bg-base {
+    .hero__bg-video {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -328,26 +328,16 @@
       object-fit: cover;
       object-position: center 25%;
     }
-    .hero__bg-top {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      opacity: 0.52;
-      mix-blend-mode: screen;
-    }
 
-    /* Dark overlay so text stays readable */
+    /* Dialled-back overlay — just enough for text legibility */
     .hero__bg::before {
       content: '';
       position: absolute;
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(to right, rgba(18,10,15,0.88) 30%, rgba(18,10,15,0.6) 100%),
-        linear-gradient(to bottom, rgba(18,10,15,0.4) 0%, rgba(18,10,15,0.75) 100%);
+        linear-gradient(to right, rgba(18,10,15,0.45) 30%, rgba(18,10,15,0.2) 100%),
+        linear-gradient(to bottom, rgba(18,10,15,0.15) 0%, rgba(18,10,15,0.4) 100%);
     }
 
     /* ── 3D Particle Canvas ─────────────────────────────────────── */
@@ -1445,8 +1435,14 @@
   <!-- ── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero__bg">
-      <img src="images/chrissy-flowers.jpg" class="hero__bg-base" alt="" aria-hidden="true" />
-      <img src="images/kids_band.jpg" class="hero__bg-top" alt="" aria-hidden="true" />
+      <video
+        class="hero__bg-video"
+        src="images/flowerscrawl.mp4"
+        autoplay
+        muted
+        playsinline
+        aria-hidden="true"
+      ></video>
     </div>
 
     <!-- 3D Particle Field -->
